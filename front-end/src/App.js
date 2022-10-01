@@ -1,15 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import './Components/style/css.css'
 import React from 'react';
-import Table from './Components/Table';
+import ListTask from './Components/Table';
 import AddTask from './Components/AddTask';
 import EditTask from './Components/EditTask';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Components/css.css'
-
-import bootstrap  from "bootstrap";
-import { Button, Card, Form } from 'react-bootstrap';
-import {Route,  Routes,  NavLink  ,BrowserRouter} from 'react-router-dom';
+import {Route,  Routes,BrowserRouter} from 'react-router-dom';
 
 class App extends React.Component{
 render(){
@@ -31,7 +26,7 @@ render(){
                         </Routes>
                     </BrowserRouter>
               
-                  <Table />
+                  <ListTask />
             </div>
       </div>
     </div>

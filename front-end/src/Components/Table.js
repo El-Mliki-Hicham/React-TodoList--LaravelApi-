@@ -1,14 +1,14 @@
 import React from "react";
 import axios from "axios";
+import Table from 'react-bootstrap/Table';
 
 
 
-
-class Table extends React.Component {
+class ListTask extends React.Component {
   
   state = {
-    user: [],
-    isEdit:false
+    Task: []
+   
   }  
   
   //get data from api json-server
@@ -18,7 +18,7 @@ class Table extends React.Component {
     .then(
       (result) => {
         this.setState({
-          user : result
+          Task : result
         })
       },
       )
@@ -59,32 +59,38 @@ render(){
     return(
     
 
-    <table   className="table" style={{width:'800px'}} >
-    <thead>
-        <tr>
-            <th>Id</th>
+    
+   
+        <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
             <th>Task</th>
-            <th>Description</th> 
-        </tr>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
         </thead>
-        {this.state.user.map(user => (
-        <tbody key={user.id}>
-            <tr>
-            <td>{user.id}</td>
-            <td>{user.Task}</td>
-            <td>{user.Description}</td>
-              <td colSpan={1}>
-
-            <a href={'/edit/'+user.id}> <button style={{marginRight:"10px"}} className="btn btn-info">Edit</button></a>
-            <button className="btn btn-danger"   onClick={()=>this.handleDelete(user.id)}>Delete</button>
-              </td>
-            </tr>
-            </tbody>
-            ))}
-       </table>
+        {this.state.Task.map(task => (
+        <tbody key={task.id}>
+          <tr>
+            <td>{task.id}</td>
+            <td>{task.Task}</td>
+            <td>{task.Description}</td>
+          
+            <td width="30%">
+              <center><a href={'/edit/'+task.id}> <button style={{marginRight:"10px"}} className="btn btn-info">Edit</button></a>
+            <button className="btn btn-danger"   onClick={()=>this.handleDelete(task.id)}>Delete</button>
+            </center>
+            </td>
+            
+          </tr>
+          
+        </tbody>
+        ))}
+      </Table>
  
 
 )
 }
 }
-export default Table
+export default ListTask

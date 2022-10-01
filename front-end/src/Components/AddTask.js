@@ -40,12 +40,12 @@ render() {
                     <form  onSubmit={this.submitHandler}>
                        
                         <div className="form-group">
-                            <label htmlFor="Name">Full Name</label>
-                            <input type="text" className="form-control"  onChange={this.changeHandler} id="Task" placeholder="Enter Name"></input>
+                            <label htmlFor="">Task</label>
+                            <input type="text" className="form-control"  onChange={this.changeHandler} id="Task" placeholder="Task"></input>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="Phone">Phone number</label>
-                            <input type="text" className="form-control" id="Description"  onChange={this.changeHandler}  placeholder="Enter Number"></input>
+                            <label htmlFor="">Description</label>
+                            <input type="text" className="form-control" id="Description"  onChange={this.changeHandler}  placeholder="Description"></input>
                         </div>
                         
                         <button type="submit" style={{marginTop:'20px',marginBottom:'20px'}} className="btn btn-primary">Submit</button>

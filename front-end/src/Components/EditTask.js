@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-
 import withRouter from "./withRouter";
 
 
@@ -12,12 +11,16 @@ import withRouter from "./withRouter";
      
       
     };
+
+    //input change 
     changeHandler=(e) => {
       
             this.setState({ [e.target.id]: e.target.value})
      
         // console.log(this.state)
     }   
+
+    //get Api
     async componentDidMount()  {
         let id =this.props.params.id
       
@@ -36,7 +39,7 @@ import withRouter from "./withRouter";
           })
         }
         
-          
+        //update btn  
     handleUpdate =async () => {
        
         let id = this.props.params.id
@@ -50,6 +53,8 @@ import withRouter from "./withRouter";
         window.location.replace('/')
     
     }
+
+    //return btn
     handleBack=()=>{
         window.location.replace('/')
     }
@@ -63,7 +68,6 @@ render() {
             <div className="row">
                 <div className="col-md-7">
                     <h1>Edit Task</h1>
-                    
                     <form  >
                         <div className="form-group">
                             <label htmlFor="Task">Task</label>
@@ -73,9 +77,10 @@ render() {
                             <label htmlFor="des">Description</label>
                             <input type="text" className="form-control" defaultValue={Description} id="Description" placeholder="Enter Name" onChange={this.changeHandler}></input>
                         </div>
-                        
+                        <div className="d-flex justify-content-between">
                         <input type="button" name="update" style={{marginTop:'20px',marginBottom:'20px'}} value='Update' className="btn btn-primary"   onClick={this.handleUpdate}></input>
-                        <input type="button" name="return" style={{marginTop:'20px',marginBottom:'20px'}} value='return' className="btn btn-primary"   onClick={this.handleBack}></input>
+                        <input type="button" name="return" style={{marginTop:'20px',marginBottom:'20px'}} value='Return' className="btn btn-secondary"   onClick={this.handleBack}></input>
+                        </div>
                     </form>
                         
                 </div>

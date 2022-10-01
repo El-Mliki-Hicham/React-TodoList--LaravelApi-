@@ -1,7 +1,13 @@
 import React from "react";
 import axios from "axios";
 import withRouter from "./withRouter";
+import { NavLink } from "react-router-dom";
 
+function Navlink (){
+   const handleBack= <NavLink to='/'><input type="button" name="return" style={{marginTop:'20px',marginBottom:'20px'}} value='Return' className="btn btn-secondary"  ></input></NavLink>
+ 
+return handleBack
+}
 
  class EditTask extends React.Component{
      state ={
@@ -50,14 +56,11 @@ import withRouter from "./withRouter";
         
         })  
           
-        window.location.replace('/')
+        window.location('/')
     
     }
 
-    //return btn
-    handleBack=()=>{
-        window.location.replace('/')
-    }
+   
   
 render() {
       
@@ -67,7 +70,7 @@ render() {
      <div className="container">
             <div className="row">
                 <div className="col-md-7">
-                    <h1>Edit Task</h1>
+                    <h1>Edit Task </h1>
                     <form  >
                         <div className="form-group">
                             <label htmlFor="Task">Task</label>
@@ -79,7 +82,7 @@ render() {
                         </div>
                         <div className="d-flex justify-content-between">
                         <input type="button" name="update" style={{marginTop:'20px',marginBottom:'20px'}} value='Update' className="btn btn-primary"   onClick={this.handleUpdate}></input>
-                        <input type="button" name="return" style={{marginTop:'20px',marginBottom:'20px'}} value='Return' className="btn btn-secondary"   onClick={this.handleBack}></input>
+                        {<Navlink/>}
                         </div>
                     </form>
                         
